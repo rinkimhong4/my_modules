@@ -21,30 +21,77 @@ class BrandItem {
 }
 
 class PromoItem {
-  // final String title;
-  // final String subtitle;
+  final String? title;
+  final String? subtitle;
   final String imageUrl;
+  final String? description;
   final List<Color> gradient;
   const PromoItem({
-    // required this.title,
-    // required this.subtitle,
+    this.title,
+    this.subtitle,
     required this.gradient,
     required this.imageUrl,
+    this.description,
   });
 }
+
+// ==============================================================
+// ── Models (add to app_models.dart) ─────────────────────────────────────
 
 class OpticalLensesItem {
   final String title;
   final String imageUrl;
-  const OpticalLensesItem({required this.title, required this.imageUrl});
+  final String? description;
+  final List<OpticalLensProduct> products;
+
+  const OpticalLensesItem({
+    required this.title,
+    required this.imageUrl,
+    this.description,
+    this.products = const [],
+  });
 }
+
+class OpticalLensProduct {
+  final String name;
+  final String imageUrl;
+  final String description;
+  final List<OpticalBenefit> benefits;
+  final String? videoUrl;
+  final String? technologyDescription;
+
+  const OpticalLensProduct({
+    required this.name,
+    required this.imageUrl,
+    required this.description,
+    this.benefits = const [],
+    this.videoUrl,
+    this.technologyDescription,
+  });
+}
+
+class OpticalBenefit {
+  final IconData icon;
+  final String title;
+  final String description;
+
+  const OpticalBenefit({
+    required this.icon,
+    required this.title,
+    required this.description,
+  });
+}
+// ==============================================================
 
 class MemberTier {
   final String name;
   final String nextTier;
+  final String? description;
   final int pointsToNext;
   final List<Color> gradient;
+  final Color? color;
   final Color shadowColor;
+
   final IconData badge;
 
   const MemberTier({
@@ -54,6 +101,8 @@ class MemberTier {
     required this.gradient,
     required this.shadowColor,
     required this.badge,
+    this.description,
+    this.color,
   });
 }
 
@@ -166,5 +215,36 @@ class ProductItem {
     required this.brand,
     this.specs = const {},
     this.availableAt = const [],
+  });
+}
+// ── Model (add to app_models.dart) ──────────────────────────────────────
+
+class BirthdayPromo {
+  final String title;
+  final String subtitle;
+  final String imageUrl;
+  final String validPeriod;
+  final List<MembershipBenefit> benefits;
+  final List<String> terms;
+
+  const BirthdayPromo({
+    required this.title,
+    required this.subtitle,
+    required this.imageUrl,
+    required this.validPeriod,
+    required this.benefits,
+    required this.terms,
+  });
+}
+
+class MembershipBenefit {
+  final String tier;
+  final String description;
+  final Color color;
+
+  const MembershipBenefit({
+    required this.tier,
+    required this.description,
+    required this.color,
   });
 }

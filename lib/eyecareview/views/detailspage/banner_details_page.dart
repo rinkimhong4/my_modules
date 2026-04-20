@@ -1,5 +1,6 @@
 import 'package:app_demo/eyecareview/core/models/app_models.dart';
 import 'package:app_demo/eyecareview/core/theme/app_theme.dart';
+import 'package:app_demo/eyecareview/widgets/dot_indicator_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,7 @@ class _BannerDetailPageState extends State<BannerDetailPage> {
             right: 0,
             bottom: bottomPadding + 16,
             child: Center(
-              child: _DotIndicator(
+              child: DotIndicator(
                 current: _currentPage,
                 total: widget.banners.length,
               ),
@@ -63,8 +64,6 @@ class _BannerDetailPageState extends State<BannerDetailPage> {
     );
   }
 }
-
-// ── Single Banner Page ──────────────────────────────────────────────────
 
 class _BannerPage extends StatelessWidget {
   final BannerItem banner;
@@ -79,7 +78,7 @@ class _BannerPage extends StatelessWidget {
           expandedHeight: 300,
           pinned: true,
           backgroundColor: banner.color,
-          leading: const _BackButton(),
+          leading: const BackButton(),
           flexibleSpace: FlexibleSpaceBar(
             background: Stack(
               fit: StackFit.expand,
@@ -145,73 +144,6 @@ class _BannerPage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-// ── Dot Indicator ───────────────────────────────────────────────────────
-
-class _DotIndicator extends StatelessWidget {
-  final int current;
-  final int total;
-  const _DotIndicator({required this.current, required this.total});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.4),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (int i = 0; i < total; i++)
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 250),
-              margin: const EdgeInsets.symmetric(horizontal: 3),
-              width: current == i ? 20 : 8,
-              height: 8,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: current == i
-                    ? Colors.white
-                    : Colors.white.withValues(alpha: 0.4),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-// ── Back Button ─────────────────────────────────────────────────────────
-
-class _BackButton extends StatelessWidget {
-  const _BackButton();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Material(
-        color: Colors.black.withValues(alpha: 0.3),
-        shape: const CircleBorder(),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: () => Navigator.pop(context),
-          child: const SizedBox(
-            width: 36,
-            height: 36,
-            child: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color: Colors.white,
-              size: 18,
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

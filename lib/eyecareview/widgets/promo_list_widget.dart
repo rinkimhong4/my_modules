@@ -1,6 +1,5 @@
-// ─── Promo List ───
-
 import 'package:app_demo/eyecareview/core/models/app_models.dart';
+import 'package:app_demo/eyecareview/views/detailspage/promotion_detail_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,17 @@ class PromoList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         itemCount: promos.length,
         separatorBuilder: (_, _) => const SizedBox(width: 12),
-        itemBuilder: (_, i) => _PromoCard(promo: promos[i]),
+        itemBuilder: (_, i) => GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) =>
+                  PromotionDetailPage(promos: promos, initialIndex: i),
+            ),
+          ),
+
+          child: _PromoCard(promo: promos[i]),
+        ),
       ),
     );
   }

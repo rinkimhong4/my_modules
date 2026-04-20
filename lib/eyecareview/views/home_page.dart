@@ -1,4 +1,6 @@
 import 'package:app_demo/eyecareview/core/data/data.dart';
+import 'package:app_demo/eyecareview/core/models/app_models.dart';
+import 'package:app_demo/eyecareview/views/detailspage/birthday_promotion_detail_page.dart';
 import 'package:app_demo/eyecareview/views/notification_page.dart';
 import 'package:app_demo/eyecareview/views/profile_page.dart';
 import 'package:app_demo/eyecareview/widgets/banner_carousel_widget.dart';
@@ -32,12 +34,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _onRefresh() async {
     await Future.delayed(const Duration(seconds: 2));
 
-    setState(() {
-      // reload your data here
-
-      // Data.banners = ...
-      // Data.promos = ...
-    });
+    setState(() {});
   }
 
   @override
@@ -128,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 24),
                 SectionTitle(title: 'BIRTHDAY PROMOTION'),
                 SizedBox(height: 8),
-                _birthDayWidget(),
+                BirthdayBanner(promo: Data.birthdayPromo),
                 SizedBox(height: 24),
                 SectionTitle(title: 'OPTICAL LENSES'),
                 SizedBox(height: 8),
@@ -144,36 +141,47 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
 
-  Widget _birthDayWidget() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return SizedBox(
-          height: 180,
-          child: ListView.builder(
-            itemCount: 1,
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            itemBuilder: (context, index) {
-              return Container(
-                width: constraints.maxWidth - 24,
-                margin: const EdgeInsets.only(right: 12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
+class BirthdayBanner extends StatelessWidget {
+  final BirthdayPromo promo;
+  const BirthdayBanner({super.key, required this.promo});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => BirthdayPromotionDetailPage(promo: promo),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: SizedBox(
+            height: 180,
+            width: double.infinity,
+            child: CachedNetworkImage(
+              imageUrl: promo.imageUrl,
+              fit: BoxFit.cover,
+              placeholder: (_, __) => ColoredBox(
+                color: Colors.grey.shade200,
+                child: const Center(
+                  child: CircularProgressIndicator(strokeWidth: 2),
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        'https://img.freepik.com/free-vector/gradient-colorful-birthday-sale-background_23-2149101747.jpg',
-                    fit: BoxFit.cover,
-                  ),
+              ),
+              errorWidget: (_, __, ___) => ColoredBox(
+                color: Colors.grey.shade300,
+                child: const Center(
+                  child: Icon(Icons.broken_image, color: Colors.red),
                 ),
-              );
-            },
+              ),
+            ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

@@ -7,14 +7,14 @@ import 'package:app_demo/eyecareview/views/home_page.dart';
 import 'package:app_demo/eyecareview/views/rewards_page.dart';
 import 'package:app_demo/eyecareview/views/stores_page.dart';
 
-class MainShell extends StatefulWidget {
-  const MainShell({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<MainShell> createState() => _MainShellState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainShellState extends State<MainShell> {
+class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   late final List<_NavConfig> _navItems;

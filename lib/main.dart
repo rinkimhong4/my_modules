@@ -1,5 +1,6 @@
 import 'package:app_demo/eyecareview/main_screen.dart';
 import 'package:app_demo/eyecareview/core/theme/app_theme.dart';
+import 'package:app_demo/eyecareview/views/auth/auth_views/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MainShell(),
+      // home: const MainShell(),
+      home: const LoginPage(),
     );
   }
 }

@@ -1,4 +1,6 @@
+import 'package:app_demo/eyecareview/core/data/data.dart';
 import 'package:app_demo/eyecareview/core/models/app_models.dart';
+import 'package:app_demo/eyecareview/views/detailspage/optical_details_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,15 @@ class OpticalLensWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemBuilder: (_, i) {
         final item = opticalLens[i];
-        return _LensCard(item: item);
+        return GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => OpticalDetailsPage(lens: Data.opticalLenses[i]),
+            ),
+          ),
+          child: _LensCard(item: item),
+        );
       },
     );
   }

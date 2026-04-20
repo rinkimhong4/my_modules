@@ -356,38 +356,129 @@ class Data {
 
   static const promos = [
     PromoItem(
-      //   title: 'Happy Khmer New Year',
-      //   subtitle: 'Buy 1 Get 1 Free',
-      gradient: [Color(0xFF3B82F6), Color(0xFF1E40AF)],
+      title: 'Sangkran EYE CARE, BUY 01 GET 01 FREE',
+      subtitle: 'Promotion Period: Apr 2, 2026 – Apr 29, 2026',
       imageUrl:
           'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sunglasses-sun-glass-ad-social-media-template-design-59070c09c1b38fdfba35c775e7eeca74.jpg?ts=1589633675',
+      gradient: [Color(0xFF1A237E), Color(0xFF283593)],
+      description:
+          '✨HAPPY KHMER NEW YEAR✨\n'
+          'Sangkran EYE CARE, BUY 01 GET 01 FREE 🎉\n'
+          '👉 Buy Frame + Lens get Frame + Lens for free\n'
+          '👉 Buy Frame get a frame for free\n'
+          '👉 Buy Frame get Sunglasses for free\n'
+          '👉 Buy Sunglasses get Sunglasses for free\n\n'
+          'To celebrate KHMER NEW YEAR, EYE CARE bring customers with the special offer 🎉\n'
+          '⏰ Date: 03/04/2026 to 30/04/2026\n'
+          '👉 Terms and conditions apply!',
     ),
     PromoItem(
-      // title: 'Special Promotion',
-      // subtitle: 'Frames from \$10',
-      gradient: [Color(0xFF60A5FA), Color(0xFF3B82F6)],
+      title: 'Summer Sale 2026',
+      subtitle: 'Promotion Period: May 1, 2026 – May 31, 2026',
       imageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXk9tXhvVxIlWAEIeDWqnRPLgfg4XvpfS2kQ&s',
-    ),
-    PromoItem(
-      // title: 'Special Promotion',
-      // subtitle: 'Frames from \$10',
-      gradient: [Color(0xFF60A5FA), Color(0xFF3B82F6)],
-      imageUrl:
-          'https://cdn.mos.cms.futurecdn.net/qUpR68kHS76nxJgFpxZ6k8-1200-80.jpg',
+          'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sunglasses-sun-glass-ad-social-media-template-design-59070c09c1b38fdfba35c775e7eeca74.jpg?ts=1589633675',
+      gradient: [Color(0xFF00838F), Color(0xFF00ACC1)],
+      description:
+          'Get up to 40% off on all sunglasses this summer!\n'
+          'Visit any Eye Care branch to enjoy exclusive deals.',
     ),
   ];
+  // ===========================
+  // ── Data (add to Data class) ────────────────────────────────────────────
+
+  // ── Data (add to Data class) ────────────────────────────────────────────
 
   static const opticalLenses = [
     OpticalLensesItem(
-      title: 'Single Vision Lens',
+      title: 'SINGLE VISION LENS',
       imageUrl:
-          'https://img.freepik.com/premium-photo/young-handsome-entrepreneur-man-face-closeup-man-making-concentration-gesture-looking-straight-ahead-focused-goal_1187-14797.jpg',
+          'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600',
+      description:
+          'Single vision lenses are designed to correct vision at one distance, '
+          'making them ideal for individuals who need glasses for either near or far sight.',
+      products: [
+        OpticalLensProduct(
+          name: 'Eyezen Start',
+          imageUrl:
+              'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400',
+          description:
+              'Eyezen Start is a new generation of single-vision glasses lenses',
+          benefits: [
+            OpticalBenefit(
+              icon: Icons.visibility,
+              title: 'Better visual acuity',
+              description: 'Optimal vision in all directions of glaze',
+            ),
+            OpticalBenefit(
+              icon: Icons.shield_outlined,
+              title: 'Eye protection',
+              description: 'Filters harmful blue-violet light from screens',
+            ),
+            OpticalBenefit(
+              icon: Icons.remove_red_eye_outlined,
+              title: 'Reduced eye strain',
+              description: 'Less fatigue during prolonged screen use',
+            ),
+          ],
+          videoUrl: 'https://example.com/eyezen_start_video.mp4',
+          technologyDescription:
+              'Unique lenses technology that considers 2 reference points, '
+              'for far and near vision. The whole lens surface is optimized according to '
+              'object distance and gaze direction, bringing correction throughout the lens '
+              'and reducing distortions and aberrations.',
+        ),
+        OpticalLensProduct(
+          name: 'Transition Gen S',
+          imageUrl:
+              'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400',
+          description:
+              'ZEISS / Transitions Gen S adapts seamlessly from indoors to outdoors',
+          benefits: [
+            OpticalBenefit(
+              icon: Icons.wb_sunny_outlined,
+              title: 'Fast activation',
+              description: 'Darkens in under 30 seconds outdoors',
+            ),
+            OpticalBenefit(
+              icon: Icons.dark_mode_outlined,
+              title: 'Quick fade back',
+              description: 'Returns to clear in 2 minutes indoors',
+            ),
+          ],
+          technologyDescription:
+              'Advanced photochromic molecules react to UV light intensity, '
+              'providing seamless transitions between indoor and outdoor environments.',
+        ),
+      ],
     ),
     OpticalLensesItem(
-      title: 'Single Vision Lens',
+      title: 'PROGRESSIVE LENS',
       imageUrl:
-          'https://img.freepik.com/premium-photo/young-handsome-entrepreneur-man-face-closeup-man-making-concentration-gesture-looking-straight-ahead-focused-goal_1187-14797.jpg',
+          'https://images.unsplash.com/photo-1577803645773-f96470509666?w=600',
+      description:
+          'Progressive lenses provide seamless vision at all distances '
+          'without visible lines, ideal for presbyopia correction.',
+      products: [
+        OpticalLensProduct(
+          name: 'Varilux Comfort',
+          imageUrl:
+              'https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=400',
+          description:
+              'Smooth transitions from near to far with wide viewing zones',
+          benefits: [
+            OpticalBenefit(
+              icon: Icons.swap_vert,
+              title: 'Smooth transition',
+              description: 'Seamless shift between near, mid, and far zones',
+            ),
+            OpticalBenefit(
+              icon: Icons.straighten,
+              title: 'Wide corridor',
+              description: 'Extra-wide intermediate zone for comfortable use',
+            ),
+          ],
+        ),
+      ],
     ),
   ];
 
@@ -492,6 +583,49 @@ class Data {
       InvoiceItem(no: '002', description: 'Lens', qty: '2'),
       InvoiceItem(no: '003', description: 'Other', qty: '1'),
       InvoiceItem(no: '004', description: 'Other', qty: '1'),
+    ],
+  );
+
+  // ── Data (add to Data class) ────────────────────────────────────────────
+
+  static const birthdayPromo = BirthdayPromo(
+    title: 'Happy Birthday! 🎂',
+    subtitle: 'A special gift just for you',
+    imageUrl:
+        'https://img.freepik.com/free-vector/gradient-colorful-birthday-sale-background_23-2149101747.jpg',
+    validPeriod: 'Valid during your birthday month',
+    benefits: [
+      MembershipBenefit(
+        tier: 'Silver Membership',
+        description:
+            'receive 15% off on all purchases during your birthday vouchers',
+        color: Color(0xFF9E9E9E),
+      ),
+      MembershipBenefit(
+        tier: 'Gold Membership',
+        description:
+            'receive 20% off on all purchases during your birthday vouchers',
+        color: Color(0xFFD4A843),
+      ),
+      MembershipBenefit(
+        tier: 'Diamond Membership',
+        description:
+            'receive 25% off on all purchases during your birthday vouchers',
+        color: Color(0xFF4A9CC7),
+      ),
+      MembershipBenefit(
+        tier: 'Platinum Membership',
+        description:
+            'receive 30% off on all purchases during your birthday vouchers',
+        color: Color(0xFF424242),
+      ),
+    ],
+    terms: [
+      'Voucher can be used for both in-store and online purchases.',
+      'Voucher cannot be combined with other promotions or discounts.',
+      'Voucher is non-transferable and cannot be exchanged for cash.',
+      'Valid for one-time use only during the birthday month.',
+      'Terms and conditions apply. See website for details.',
     ],
   );
 }
